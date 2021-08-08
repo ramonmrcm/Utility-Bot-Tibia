@@ -181,6 +181,7 @@ Amulet:
     }
 return
 
+;Puxar Ring
 Ring:
     GuiControlGet, Ring
     if (Ring = 1){
