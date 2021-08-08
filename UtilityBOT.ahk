@@ -41,15 +41,17 @@ GUIMain() {
 
 ; tamanho da gui principal     
 GUIWidth := 500, GUIHeight := 300
-Gui, Show, % " w" GUIWidth " h" GUIHeight, Utility Bot by "Khoriuz"
-    Gui, Add, CheckBox, x10 y10 gMacroLoot vMacroLoot, Macro de Loot
-    Gui, Add, CheckBox, x10 y30 gComboEk vComboEk, Auto Combo Ek     
-    Gui, Add, CheckBox, x10 y50 gHaste vHaste, Auto Utani hur
-    Gui, Add, CheckBox, x10 y70 gAmulet vAmulet, Auto Amulet 
-    Gui, Add, CheckBox, x10 y90 gRing vRing, Auto Ring  
-    Gui, Add, Text, x150 y10, Botão 5 para ativar o Macro de Loot!
-    Gui, Add, Text, x150 y30, Botão 4 ativa e 6 desativa o Combo de Ek!
-    Gui, Add, Text, x150 y90, Utilizar com Skill Ring ou Dwarven
+Gui, Show, % " w" GUIWidth " h" GUIHeight, Utility BOT by "Khoriuz"
+    Gui, Add, CheckBox, x10 y20 gMacroLoot vMacroLoot, Macro de Loot
+    Gui, Add, CheckBox, x10 y40 gComboEk vComboEk, Auto Combo Ek     
+    Gui, Add, CheckBox, x10 y60 gHaste vHaste, Auto Utani hur
+    Gui, Add, CheckBox, x10 y80 gAmulet vAmulet, Auto Amulet 
+    Gui, Add, CheckBox, x10 y100 gRing vRing, Auto Ring
+    Gui, Add, Text, x150 y20, Botão 5 para ativar o Macro de Loot!
+    Gui, Add, Text, x150 y40, Botão 4 ativa e 6 desativa o Combo de Ek!
+    Gui, Add, Text, x150 y100, Utilizar com Skill Ring ou Dwarven
+    Gui, Add, GroupBox, x5 y5 w400 h120, Utilitários
+
      
     SetTimer, MacroLoot, 1
     SetTimer, ComboEk, 1
@@ -155,7 +157,7 @@ Haste:
     if (Haste = 1){
         If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
            
-        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoAutoLoot\Imagens\utanihur.png
+        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoAutoLoot\Imagens\hur.png
 
             if (ErrorLevel = 1) {
               Send {f11}
