@@ -157,7 +157,7 @@ Haste:
     if (Haste = 1){
         If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
            
-        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoAutoLoot\Imagens\hur.png
+        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
 
             if (ErrorLevel = 1) {
               Send {f11}
@@ -172,7 +172,7 @@ Amulet:
     if (Amulet = 1){
         If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
            
-        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoAutoLoot\Imagens\amulet.png
+        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\amulet.png
 
             if (ErrorLevel = 0) {
               Send, {l}
@@ -187,7 +187,7 @@ Ring:
     if (Ring = 1){
         If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
            
-        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoAutoLoot\Imagens\ring.png
+        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\ring.png
 
             if (ErrorLevel = 0) {
               Send, {ç}
