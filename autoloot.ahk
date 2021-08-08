@@ -138,14 +138,15 @@ return
     SetDefaultMouseSpeed, 5
     MouseGetPos, StartX, StartY
 
-    Send +{Click 924, 276, right}
-    Send +{Click 955, 510, right}
-    Send +{Click 881, 510, right}
-    Send +{Click 807, 510, right}
-    Send +{Click 808, 439, right}
-    Send +{Click 807, 369, right}
-    Send +{Click 882, 364, right}
-    Send +{Click 953, 364, right}
+    Send {Shift Down}{Click 955, 436, right}
+    Send {Shift Down}{Click 955, 510, right}
+    Send {Shift Down}{Click 881, 510, right}
+    Send {Shift Down}{Click 807, 510, right}
+    Send {Shift Down}{Click 808, 439, right}
+    Send {Shift Down}{Click 807, 369, right}
+    Send {Shift Down}{Click 882, 364, right}
+    Send {Shift Down}{Click 953, 364, right}
+    Send {ShiftUp}
     MouseMove, StartX, StartY
 
 ;Usar Utani hur
