@@ -39,12 +39,12 @@ GUIMain() {
     Gui, Show, % " w" GUIWidth " h" GUIHeight, Utility BOT by "Khoriuz"
 ;----------------------------------------------------------------------------------
     ;Caixas separatórias
-    Gui, Add, GroupBox, x5 y5 w400 h120, Utilitários
-    Gui, Add, GroupBox, x5 y130 w400 h120, Healing
+    Gui, Add, GroupBox, x5 y5 w400 h120, Utilities
+    Gui, Add, GroupBox, x5 y130 w400 h120, Support
 ;----------------------------------------------------------------------------------
     ;Healing
-    Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
-    Gui, Add, ComboBox, x70 y150 w60 vPorcentagemHealth, 100|90|80|70|50|30|10
+    ;Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
+    ;Gui, Add, ComboBox, x70 y150 w60 vPorcentagemHealth, 100|90|80|70|50|30|10
     ;SetTimer, HealingHP, 1
 ;----------------------------------------------------------------------------------
     ;Ring
@@ -167,10 +167,11 @@ Haste:
             if (Haste = 1){
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
                 
-                ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
+                ;ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
+                ImageSearch, HurX, HurY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
 
                     if (ErrorLevel = 1) {
-                    Send {f11}
+                    Send, {f11}
                     }
                 }
             }
@@ -206,9 +207,8 @@ Ring:
             }
 return
 
-HealingHP:
-return
-
+;HealingHP:
+;return
 
 
 
