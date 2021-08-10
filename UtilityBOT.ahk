@@ -45,8 +45,10 @@ GUIMain() {
     Gui, Show, % " w" GUIWidth " h" GUIHeight, Utility BOT by "Khoriuz"    
 ;----------------------------------------------------------------------------------
     ;Healing
-    Gui, Add, CheckBox, x10 y130 gHealth vHealth, Health
-    Gui, Add, ComboBox, vPorcentagemHealth, 100|90|80|70|50|30|10
+    Gui, Add, CheckBox, x10 y130 gHealingHP vHealingHP, Health
+    Gui, Add, ComboBox, x70 y130 w60 vPorcentagemHealth, 100|90|80|70|50|30|10
+    ;SetTimer, HealingHP, 1
+
 ;----------------------------------------------------------------------------------
     ;Ring
     Gui, Add, CheckBox, x10 y100 gRing vRing, Auto Ring
@@ -166,50 +168,51 @@ return
 ;Usar Utani hur
 Haste:
     GuiControlGet, Haste
-    if (Haste = 1){
-        If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-           
-        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
+            if (Haste = 1){
+                If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                
+                ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
 
-            if (ErrorLevel = 1) {
-              Send {f11}
+                    if (ErrorLevel = 1) {
+                    Send {f11}
+                    }
+                }
             }
-        }
-    }
 return
 
 ;Puxar amulet
 Amulet:
     GuiControlGet, Amulet
-    if (Amulet = 1){
-        If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-           
-        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\amulet.png
+            if (Amulet = 1){
+                If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                
+                ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\amulet.png
 
-            if (ErrorLevel = 0) {
-              Send, {l}
+                    if (ErrorLevel = 0) {
+                    Send, {l}
+                    }
+                }
             }
-        }
-    }
 return
 
 ;Puxar Ring
 Ring:
     GuiControlGet, Ring
-    if (Ring = 1){
-        If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-           
-        ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\ring.png
+            if (Ring = 1){
+                If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                
+                ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\ring.png
 
-            if (ErrorLevel = 0) {
-              Send, {ç}
+                    if (ErrorLevel = 0) {
+                    Send, {ç}
+                    }
+                }
             }
-        }
-    }
 return
 
-Health:
+HealingHP:
 return
+
 
 
 
