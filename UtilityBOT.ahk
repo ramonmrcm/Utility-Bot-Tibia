@@ -36,13 +36,16 @@ GUIMain() {
 ;----------------------------------------------------------------------------------
     ;tamanho da gui principal     
     GUIWidth := 500, GUIHeight := 300
-    Gui, Show, % " w" GUIWidth " h" GUIHeight, Utility BOT by "Khoriuz"    
+    Gui, Show, % " w" GUIWidth " h" GUIHeight, Utility BOT by "Khoriuz"
+;----------------------------------------------------------------------------------
+    ;Caixas separatórias
+    Gui, Add, GroupBox, x5 y5 w400 h120, Utilitários
+    Gui, Add, GroupBox, x5 y130 w400 h120, Healing
 ;----------------------------------------------------------------------------------
     ;Healing
-    Gui, Add, CheckBox, x10 y130 gHealingHP vHealingHP, Health
-    Gui, Add, ComboBox, x70 y130 w60 vPorcentagemHealth, 100|90|80|70|50|30|10
+    Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
+    Gui, Add, ComboBox, x70 y150 w60 vPorcentagemHealth, 100|90|80|70|50|30|10
     ;SetTimer, HealingHP, 1
-
 ;----------------------------------------------------------------------------------
     ;Ring
     Gui, Add, CheckBox, x10 y100 gRing vRing, Auto Ring
@@ -51,7 +54,6 @@ GUIMain() {
 ;----------------------------------------------------------------------------------
     ;Amulet
     Gui, Add, CheckBox, x10 y80 gAmulet vAmulet, Auto Amulet
-    Gui, Add, GroupBox, x5 y5 w400 h120, Utilitários
     SetTimer, Amulet, 150
 ;----------------------------------------------------------------------------------  
     ;Macro de Loot
