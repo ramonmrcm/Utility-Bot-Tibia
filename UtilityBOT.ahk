@@ -43,8 +43,8 @@ GUIMain() {
     Gui, Add, GroupBox, x5 y130 w400 h120, Support
 ;----------------------------------------------------------------------------------
     ;Healing
-    ;Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
-    ;Gui, Add, ComboBox, x70 y150 w60 vPorcentagemHealth, 100|90|80|70|50|30|10
+    Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
+    Gui, Add, ComboBox, x70 y150 w60 vPorcentagemHealth, 100|90|80|70|50|30|10
     ;SetTimer, HealingHP, 1
 ;----------------------------------------------------------------------------------
     ;Ring
@@ -207,8 +207,22 @@ Ring:
             }
 return
 
-;HealingHP:
-;return
+HealingHP:
+    GuiControlGet, HealingHP
+            if (HealingHP = 1){
+                If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                    
+                    ImageSearch, health100X, health100Y, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55,, ‪C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health100.png
+
+                    if(ErrorLevel = 0){
+                        if (PorcentagemHealth = 100){
+                            Send, {'}
+
+                        }
+                    }    
+                } 
+            }
+return
 
 
 
