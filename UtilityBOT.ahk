@@ -39,23 +39,9 @@ GUIMain() {
     Gui, Show, % " w" GUIWidth " h" GUIHeight, Utility BOT by "Khoriuz"
 ;----------------------------------------------------------------------------------
     ;Caixas separatórias
-    Gui, Add, GroupBox, x5 y5 w400 h120, Utilities
-    Gui, Add, GroupBox, x5 y130 w400 h120, Support
+    Gui, Add, GroupBox, x5 y5 w400 h150, Utilities
+    ;Gui, Add, GroupBox, x5 y150 w400 h120, Support
 ;----------------------------------------------------------------------------------
-    ;Healing
-    Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
-    Gui, Add, ComboBox, x70 y150 w60 vPorcentagemHealth, 100|90|80|70|50|30|10
-    ;SetTimer, HealingHP, 1
-;----------------------------------------------------------------------------------
-    ;Ring
-    Gui, Add, CheckBox, x10 y100 gRing vRing, Auto Ring
-    Gui, Add, Text, x150 y100, Utilizar com Skill Ring ou Dwarven
-    SetTimer, Ring, 150
-;----------------------------------------------------------------------------------
-    ;Amulet
-    Gui, Add, CheckBox, x10 y80 gAmulet vAmulet, Auto Amulet
-    SetTimer, Amulet, 150
-;----------------------------------------------------------------------------------  
     ;Macro de Loot
     Gui, Add, CheckBox, x10 y20 gMacroLoot vMacroLoot, Macro de Loot
     Gui, Add, Text, x150 y20, Botão 5 para ativar o Macro de Loot!
@@ -72,6 +58,22 @@ GUIMain() {
     Gui, Add, CheckBox, x10 y60 gHaste vHaste, Auto Utani hur
     SetTimer, Haste, 150
 ;----------------------------------------------------------------------------------
+    ;Amulet
+    Gui, Add, CheckBox, x10 y80 gAmulet vAmulet, Auto Amulet
+    SetTimer, Amulet, 150
+;----------------------------------------------------------------------------------
+    ;Ring
+    Gui, Add, CheckBox, x10 y100 gRing vRing, Auto Ring
+    Gui, Add, Text, x150 y100, Utilizar com Skill Ring ou Dwarven
+    SetTimer, Ring, 150
+;----------------------------------------------------------------------------------
+    ;Auto Eat
+    Gui, Add, CheckBox, x10 y120 gEat vEat, Auto Eat
+;----------------------------------------------------------------------------------
+    ;Healing
+    ;Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
+;----------------------------------------------------------------------------------
+
      
 
 }
@@ -158,7 +160,7 @@ return
     Send {Shift Down}{Click 807, 369, right}
     Send {Shift Down}{Click 882, 364, right}
     Send {Shift Down}{Click 953, 364, right}
-    Send {ShiftUp}
+    Send {Shift Up}
     MouseMove, StartX, StartY
 
 ;Usar Utani hur
@@ -167,7 +169,6 @@ Haste:
             if (Haste = 1){
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
                 
-                ;ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
                 ImageSearch, HurX, HurY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
 
                     if (ErrorLevel = 1) {
@@ -207,22 +208,22 @@ Ring:
             }
 return
 
-HealingHP:
-    GuiControlGet, HealingHP
-            if (HealingHP = 1){
-                If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-                    
-                    ImageSearch, health100X, health100Y, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55,, ‪C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health100.png
 
-                    if(ErrorLevel = 0){
-                        if (PorcentagemHealth = 100){
-                            Send, {'}
+Eat:
+    GuiControlGet, Eat 
 
-                        }
-                    }    
-                } 
-            }
 return
+
+
+
+
+
+
+
+;Healar HP
+;HealingHP:
+;    GuiControlGet, HealingHP
+;return
 
 
 
