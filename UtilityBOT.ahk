@@ -69,6 +69,7 @@ GUIMain() {
 ;----------------------------------------------------------------------------------
     ;Auto Eat
     Gui, Add, CheckBox, x10 y120 gEat vEat, Auto Eat
+    SetTimer, Eat, 150
 ;----------------------------------------------------------------------------------
     ;Healing
     ;Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
@@ -84,7 +85,7 @@ GuiControlGet, ComboEk
            if (ComboEk = 1) {
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
     
-             comboekon := 1
+                comboekon := 1
 
                  }                    
              }   
@@ -135,7 +136,7 @@ MacroLoot:
            if (MacroLoot = 1) {
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
     
-        macrolooton := 1
+                macrolooton := 1
 
                  }    
             } 
@@ -172,7 +173,7 @@ Haste:
                 ImageSearch, HurX, HurY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
 
                     if (ErrorLevel = 1) {
-                    Send, {f11}
+                        Send, {f11}
                     }
                 }
             }
@@ -187,7 +188,7 @@ Amulet:
                 ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\amulet.png
 
                     if (ErrorLevel = 0) {
-                    Send, {l}
+                        Send, {l}
                     }
                 }
             }
@@ -202,16 +203,26 @@ Ring:
                 ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\ring.png
 
                     if (ErrorLevel = 0) {
-                    Send, {ç}
+                        Send, {ç}
                     }
                 }
             }
 return
 
-
+;Auto Eat
 Eat:
     GuiControlGet, Eat 
+        if (Eat = 1){
+            If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                CoordMode, Pixel, Screen
+                ;ImageSearch, x, y, 0, 0, 1920, 1080 C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\hungry.png
+                ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\hungry.png
 
+                    if(ErrorLevel = 0){
+                        Send, {[}
+                    }
+            }
+        }
 return
 
 
