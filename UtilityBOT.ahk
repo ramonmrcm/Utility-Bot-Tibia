@@ -72,7 +72,8 @@ GUIMain() {
     SetTimer, Eat, 150
 ;----------------------------------------------------------------------------------
     ;Healing
-    ;Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
+    Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
+    Gui, Add, ComboBox, vPercent, 100|90
 ;----------------------------------------------------------------------------------
 
      
@@ -170,11 +171,11 @@ Haste:
             if (Haste = 1){
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
                 
-                ImageSearch, HurX, HurY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
+                    ImageSearch, HurX, HurY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
 
-                    if (ErrorLevel = 1) {
-                        Send, {f11}
-                    }
+                        if (ErrorLevel = 1) {
+                            Send, {f11}
+                        }
                 }
             }
 return
@@ -185,11 +186,11 @@ Amulet:
             if (Amulet = 1){
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
                 
-                ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\amulet.png
+                    ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\amulet.png
 
-                    if (ErrorLevel = 0) {
-                        Send, {l}
-                    }
+                        if (ErrorLevel = 0) {
+                            Send, {l}
+                        }
                 }
             }
 return
@@ -200,11 +201,11 @@ Ring:
             if (Ring = 1){
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
                 
-                ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\ring.png
+                    ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\ring.png
 
-                    if (ErrorLevel = 0) {
-                        Send, {ç}
-                    }
+                        if (ErrorLevel = 0) {
+                            Send, {ç}
+                        }
                 }
             }
 return
@@ -214,8 +215,7 @@ Eat:
     GuiControlGet, Eat 
         if (Eat = 1){
             If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-                CoordMode, Pixel, Screen
-                ;ImageSearch, x, y, 0, 0, 1920, 1080 C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\hungry.png
+
                 ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\hungry.png
 
                     if(ErrorLevel = 0){
@@ -225,16 +225,24 @@ Eat:
         }
 return
 
-
-
-
-
-
-
 ;Healar HP
-;HealingHP:
-;    GuiControlGet, HealingHP
-;return
+HealingHP:
+    GuiControlGet, HealingHP
+        if (HealingHP = 1){          
+            
+                If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                    
+                    ImageSearch, x, y, 0, 0, 1920, 1080, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health100.png
+
+                   if(ErrorLevel = 1){
+                      MsgBox, oi
+                    }
+                }
+            }
+return
+
+
+
 
 
 
