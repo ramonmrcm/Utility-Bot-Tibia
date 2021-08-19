@@ -73,12 +73,9 @@ GUIMain() {
 ;----------------------------------------------------------------------------------
     ;Healing
     Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
-    Gui, Add, ComboBox, vPercentHP, 100|90
+    Gui, Add, ComboBox, vPercentHP, 100|90|80|70|60|50|40|30|20|10
     SetTimer, HealingHP, 150
 ;----------------------------------------------------------------------------------
-
-     
-
 }
 
 ;Combo de EK (Exori, Exori gran, Exori, Exori Mas)
@@ -238,21 +235,6 @@ HealingHP:
             }        
         }
 return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
