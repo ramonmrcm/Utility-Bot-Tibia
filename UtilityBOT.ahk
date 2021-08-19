@@ -40,7 +40,7 @@ GUIMain() {
 ;----------------------------------------------------------------------------------
     ;Caixas separatórias
     Gui, Add, GroupBox, x5 y5 w400 h150, Utilities
-    ;Gui, Add, GroupBox, x5 y150 w400 h120, Support
+    Gui, Add, GroupBox, x5 y150 w400 h120, Support
 ;----------------------------------------------------------------------------------
     ;Macro de Loot
     Gui, Add, CheckBox, x10 y20 gMacroLoot vMacroLoot, Macro de Loot
@@ -72,8 +72,9 @@ GUIMain() {
     SetTimer, Eat, 150
 ;----------------------------------------------------------------------------------
     ;Healing
-    Gui, Add, CheckBox, x15 y150 gHealingHP vHealingHP, Health
+    Gui, Add, CheckBox, x10 y170 gHealingHP vHealingHP, Health Spell
     Gui, Add, ComboBox, vPercentHP, 100|90|80|70|60|50|40|30|20|10
+    Gui, Add, Text, x150 y190, Percent
     SetTimer, HealingHP, 150
 ;----------------------------------------------------------------------------------
 }
@@ -231,6 +232,7 @@ HealingHP:
                 ImageSearch, HealingHPx, HealingHPy, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health%PercentHP%.png
                 if(ErrorLevel = 1){
                     Send, (')
+                    Sleep, 1000
                 }
             }        
         }
