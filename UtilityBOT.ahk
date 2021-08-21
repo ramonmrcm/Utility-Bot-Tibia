@@ -76,8 +76,8 @@ GUIMain() {
     SetTimer, Eat, 300
 ;----------------------------------------------------------------------------------
     ;Auto Utamo Vita
-    Gui, add, CheckBox, x10 y170 gMShield vUMShield, Auto Utamo Vita
-    SetTimer, MShield, 300
+    ;Gui, add, CheckBox, x10 y170 gMShield vUMShield, Auto Utamo Vita
+    ;SetTimer, MShield, 300
 ;----------------------------------------------------------------------------------
     ;Healing
     Gui, tab, 2 ; o 2 significa a aba em que ele se localiza
@@ -240,7 +240,7 @@ HealingHP:
             If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
                 ImageSearch, HealingHPx, HealingHPy, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health%PercentHP%.png
                 if(ErrorLevel = 1){
-                    Send, (')
+                    Send, {f9}
                     Sleep, 1000
                 }
             }        
@@ -248,18 +248,18 @@ HealingHP:
 return
 
 ;Auto Utamo vita
-MShield:
-    GuiControlGet, MShield
-    If (MShield = 1){
-        If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-            ImageSearch, HealingHPx, HealingHPy, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\MShield.png
-            if(ErrorLevel = 1){
-                Send, 
-            }
-        } 
-    }
+;MShield:
+;    GuiControlGet, MShield
+;    If (MShield = 1){
+;        If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+;            ImageSearch, HealingHPx, HealingHPy, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\MShield.png
+;            if(ErrorLevel = 0){
+;                Se
+;            }
+;        } 
+;    }
 
-    return
+;    return
 
 
 
