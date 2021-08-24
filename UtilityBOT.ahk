@@ -103,6 +103,15 @@ GUIMain() {
     Gui, Add, text, x150 y170, Puxar ring de Utamo
     SetTimer, RingUtamo, 150
 ;----------------------------------------------------------------------------------
+    ;Spam Sio
+    Gui, tab, 2
+    Gui, add, checkbox, x15 y150 gSpamSio vSpamSio, Spam Sio 
+    Gui, add, combobox, x15 y170 w70 Hotkey, ; caixa de hotkey do usuário
+    Gui, add, text, x90 y170 w70, << Hotkey
+    SetTimer, SpamSio, 1050
+    spamsioon := 0
+
+;----------------------------------------------------------------------------------
 
 }
 
@@ -288,6 +297,38 @@ RingUtamo:
             }
         }
 return
+
+;Auto Sio
+SpamSio:
+    GuiControlGet, SpamSio
+        If(SpamSio = 1){
+            If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                
+                spamsioon := 1
+
+            }
+        }
+return
+
+    #If (spamsioon = 1)
+
+8::
+    StopLoop := False
+
+    Loop{
+        If StopLoop {
+            Break
+        } else {
+            Send, {'}
+            Sleep, 1050
+        }
+    }
+Return
+
+9::
+    StopLoop := True
+Return
+
 
 
 
