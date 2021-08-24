@@ -79,13 +79,31 @@ GUIMain() {
     ;Gui, add, CheckBox, x10 y170 gMShield vUMShield, Auto Utamo Vita
     ;SetTimer, MShield, 300
 ;----------------------------------------------------------------------------------
-    ;Healing
+    ;Healing HP
     Gui, tab, 2 ; o 2 significa a aba em que ele se localiza
-    Gui, Add, CheckBox, x15 y30 gHealingHP vHealingHP, Health Spell
-    Gui, Add, ComboBox, vPercentHP, 100|90|80|70|60|50|40|30|20|10
-    Gui, Add, Text, x150 y30, Percent
+    Gui, Add, CheckBox, x15 y30 gHealingHP vHealingHP, Health Spell 
+    Gui, Add, ComboBox, x15 y50 w70 vPercentHP, 100|90|80|70|60|50|40|30|20|10 ; Caixa de porcentagem do HP
+    Gui, add, combobox, x150 y50 w70 vUserHotkeyHP, F1|F2|F3|F4|F5|F6|F7|F8|F9|F10|F11|F12 ; caixa de hotkey do usuario
+    Gui, Add, Text, x90 y50, Percent
+    Gui, add, text, x230 y50, << Hotkey
     SetTimer, HealingHP, 150
 ;----------------------------------------------------------------------------------
+    ;Healing MP
+    Gui, tab, 2 ; o 2 significa a aba em que ele se localiza
+    Gui, Add, CheckBox, x15 y90 gHealingMP vHealingMP, Mana Potion
+    Gui, Add, ComboBox, x15 y110 w70 vPercentMP, 100|90|80|70|60|50|40|30|20|10 ; caixa de porcentagem da MP
+    Gui, add, combobox, x150 y110 w70 vUserHotkeyMP, F1|F2|F3|F4|F5|F6|F7|F8|F9|F10|F11|F12 ; caixa de hotkey do usuario
+    Gui, Add, Text, x90 y110, Percent
+    gui, add, text, x230 y110, << Hotkey
+    SetTimer, HealingMP, 150
+;----------------------------------------------------------------------------------
+    ;RingUtamo
+    Gui, tab, 1
+    Gui, add, Checkbox, x10 y170 gRingUtamo vRingUtamo, Puxar Ring
+    Gui, Add, text, x150 y170, Puxar ring de Utamo
+    SetTimer, RingUtamo, 150
+;----------------------------------------------------------------------------------
+
 }
 
 ;Combo de EK (Exori, Exori gran, Exori, Exori Mas)
@@ -178,12 +196,10 @@ Haste:
     GuiControlGet, Haste
             if (Haste = 1){
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-                
                     ImageSearch, HurX, HurY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\Hur.png
-
-                        if (ErrorLevel = 1) {
-                            Send, {f11}
-                        }
+                    if (ErrorLevel = 1) {
+                        Send, {f11}
+                    }
                 }
             }
 return
@@ -193,12 +209,10 @@ Amulet:
     GuiControlGet, Amulet
             if (Amulet = 1){
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-                
                     ImageSearch, Amuletx, Amulety, 0, 0, A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\amulet.png
-
-                        if (ErrorLevel = 0) {
-                            Send, {l}
-                        }
+                    if (ErrorLevel = 0) {
+                        Send, {l}
+                    }
                 }
             }
 return
@@ -208,12 +222,10 @@ Ring:
     GuiControlGet, Ring
             if (Ring = 1){
                 If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-                
                     ImageSearch, Ringx, Ringy, 0, 0, A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\ring.png
-
-                        if (ErrorLevel = 0) {
-                            Send, {ç}
-                        }
+                    if (ErrorLevel = 0) {
+                        Send, {ç}
+                    }
                 }
             }
 return
@@ -223,7 +235,6 @@ Eat:
     GuiControlGet, Eat 
         if (Eat = 1){
             If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-
                 ImageSearch, HungryX, HungryY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 480, *55, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\hungry.png
                 if(ErrorLevel = 0){
                     Send, {[}
@@ -236,31 +247,47 @@ return
 HealingHP:
     GuiControlGet, HealingHP
     GuiControlGet, PercentHP
+    GuiControlGet, UserHotkey
         if (HealingHP = 1){                
             If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
                 ImageSearch, HealingHPx, HealingHPy, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health%PercentHP%.png
                 if(ErrorLevel = 1){
-                    Send, {f9}
+                    Send, {%UserHotkeyHP%}
                     Sleep, 1000
                 }
             }        
         }
 return
 
-;Auto Utamo vita
-;MShield:
-;    GuiControlGet, MShield
-;    If (MShield = 1){
-;        If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-;            ImageSearch, HealingHPx, HealingHPy, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\MShield.png
-;            if(ErrorLevel = 0){
-;                Se
-;            }
-;        } 
-;    }
+;Healar MP
+HealingMP:
+    GuiControlGet, HealingMP
+    GuiControlGet, PercentMP
+    GuiControlGet, UserHotkeyMP
+        if (HealingMP = 1){                
+            If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                ImageSearch, HealingMPx, HealingMPy, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\mana\mana%PercentMP%.png
+                if(ErrorLevel = 1){
+                    Send, {%UserHotkeyMP%}
+                    Sleep, 1000
+                }
+            }        
+        }
+return
 
-;    return
-
+;Puxar ring de Utamo
+RingUtamo:
+    GuiControlGet, RingUtamo
+    GuiControlGet, PercentHP
+        if(RingUtamo = 1){
+            If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+                ImageSearch, RingUtamoX, RingUtamoY, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health20.png
+                if(ErrorLevel = 1){
+                    Send, {Ins}
+                }
+            }
+        }
+return
 
 
 
