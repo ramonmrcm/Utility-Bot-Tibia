@@ -104,12 +104,14 @@ GUIMain() {
     SetTimer, RingUtamo, 150
 ;----------------------------------------------------------------------------------
     ;Spam Sio
-    Gui, tab, 2
-    Gui, add, checkbox, x15 y150 gSpamSio vSpamSio, Spam Sio 
-    Gui, add, combobox, x15 y170 w70 Hotkey, ; caixa de hotkey do usuário
-    Gui, add, text, x90 y170 w70, << Hotkey
-    SetTimer, SpamSio, 1050
-    spamsioon := 0
+    ;Gui, tab, 2
+    ;Gui, add, checkbox, x15 y150 gSpamSio vSpamSio, Spam Sio 
+    ;Gui, add, combobox, x15 y170 w70 Hotkey, ; Hotkey da spell
+    ;Gui, add, text, x90 y170 w70, << Hotkey 
+    ;Gui, add, combobox, x150 y170 w70 UserHotkeySio ; Hotkey para ativar a spell
+    ;Gui, add, text, x230 y170, << Ativar Spell
+    ;SetTimer, SpamSio, 500
+    ;spamsioon := 0
 
 ;----------------------------------------------------------------------------------
 
@@ -256,7 +258,7 @@ return
 HealingHP:
     GuiControlGet, HealingHP
     GuiControlGet, PercentHP
-    GuiControlGet, UserHotkey
+    GuiControlGet, UserHotkeyHP
         if (HealingHP = 1){                
             If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
                 ImageSearch, HealingHPx, HealingHPy, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health%PercentHP%.png
@@ -299,35 +301,36 @@ RingUtamo:
 return
 
 ;Auto Sio
-SpamSio:
-    GuiControlGet, SpamSio
-        If(SpamSio = 1){
-            If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-                
-                spamsioon := 1
+;SpamSio:
+;    GuiControlGet, SpamSio
+;    GuiControlGet, Hotkey
+;    GuiControlGet, UserHotkeySio
+;        If(SpamSio = 1){
+;            If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
+;                
+;                spamsioon := 1
+;            }
+;        }
+;return
 
-            }
-        }
-return
+ ;   #If (spamsioon = 1)
 
-    #If (spamsioon = 1)
+;%UserHotkeySio%::
+;    StopLoop := False
 
-8::
-    StopLoop := False
+;    Loop{
+;        If StopLoop {
+;            Break
+;        } else {
+;            Send, %Hotkey%
+;            Sleep, 1050
+;        }
+;    }
+;Return
 
-    Loop{
-        If StopLoop {
-            Break
-        } else {
-            Send, {'}
-            Sleep, 1050
-        }
-    }
-Return
-
-9::
-    StopLoop := True
-Return
+;%UserHotkeySio%::
+;    StopLoop := True
+;Return
 
 
 
