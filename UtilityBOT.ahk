@@ -42,10 +42,6 @@ GUIMain() {
     GUIWidth := 500, GUIHeight := 300
     Gui, Show, % " w" GUIWidth " h" GUIHeight, Utility BOT by "Khoriuz"
 ;----------------------------------------------------------------------------------
-    ;Caixas separatórias
-    ;Gui, Add, GroupBox, x5 y5 w400 h150, Utilities
-    ;Gui, Add, GroupBox, x5 y150 w400 h120, Support
-;----------------------------------------------------------------------------------
     ;Macro de Loot
     Gui, Add, CheckBox, x10 y50 gMacroLoot vMacroLoot, Macro de Loot
     Gui, Add, Text, x150 y50, Botão 5 para ativar o Macro de Loot!
@@ -64,20 +60,16 @@ GUIMain() {
 ;----------------------------------------------------------------------------------
     ;Amulet
     Gui, Add, CheckBox, x10 y110 gAmulet vAmulet, Auto Amulet
-    SetTimer, Amulet, 300
+    SetTimer, Amulet, 150
 ;----------------------------------------------------------------------------------
     ;Ring
     Gui, Add, CheckBox, x10 y130 gRing vRing, Auto Ring
     Gui, Add, Text, x150 y130, Utilizar com Skill Ring ou Dwarven
-    SetTimer, Ring, 300
+    SetTimer, Ring, 150
 ;----------------------------------------------------------------------------------
     ;Auto Eat
     Gui, Add, CheckBox, x10 y150 gEat vEat, Auto Eat
     SetTimer, Eat, 300
-;----------------------------------------------------------------------------------
-    ;Auto Utamo Vita
-    ;Gui, add, CheckBox, x10 y170 gMShield vUMShield, Auto Utamo Vita
-    ;SetTimer, MShield, 300
 ;----------------------------------------------------------------------------------
     ;Healing HP
     Gui, tab, 2 ; o 2 significa a aba em que ele se localiza
@@ -98,21 +90,10 @@ GUIMain() {
     SetTimer, HealingMP, 150
 ;----------------------------------------------------------------------------------
     ;RingUtamo
-    Gui, tab, 1
-    Gui, add, Checkbox, x10 y170 gRingUtamo vRingUtamo, Puxar Ring
-    Gui, Add, text, x150 y170, Puxar ring de Utamo
-    SetTimer, RingUtamo, 150
-;----------------------------------------------------------------------------------
-    ;Spam Sio
-    ;Gui, tab, 2
-    ;Gui, add, checkbox, x15 y150 gSpamSio vSpamSio, Spam Sio 
-    ;Gui, add, combobox, x15 y170 w70 Hotkey, ; Hotkey da spell
-    ;Gui, add, text, x90 y170 w70, << Hotkey 
-    ;Gui, add, combobox, x150 y170 w70 UserHotkeySio ; Hotkey para ativar a spell
-    ;Gui, add, text, x230 y170, << Ativar Spell
-    ;SetTimer, SpamSio, 500
-    ;spamsioon := 0
-
+    ;Gui, tab, 1
+    ;Gui, add, Checkbox, x10 y170 gRingUtamo vRingUtamo, Puxar Ring
+    ;Gui, Add, text, x150 y170, Puxar ring de Utamo
+    ;SetTimer, RingUtamo, 150
 ;----------------------------------------------------------------------------------
 
 }
@@ -266,7 +247,7 @@ HealingHP:
                     Send, {%UserHotkeyHP%}
                     Sleep, 1000
                 }
-            }        
+            }       
         }
 return
 
@@ -287,52 +268,18 @@ HealingMP:
 return
 
 ;Puxar ring de Utamo
-RingUtamo:
-    GuiControlGet, RingUtamo
-    GuiControlGet, PercentHP
-        if(RingUtamo = 1){
-            If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-                ImageSearch, RingUtamoX, RingUtamoY, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health20.png
-                if(ErrorLevel = 1){
-                    Send, {Ins}
-                }
-            }
-        }
-return
-
-;Auto Sio
-;SpamSio:
-;    GuiControlGet, SpamSio
-;    GuiControlGet, Hotkey
-;    GuiControlGet, UserHotkeySio
-;        If(SpamSio = 1){
+;RingUtamo:
+;    GuiControlGet, RingUtamo
+;    GuiControlGet, PercentHP
+;        if(RingUtamo = 1){
 ;            If WinActive("ahk_exe Krolork.exe") or isWindowFullScreen("ahk_exe Krolork.exe") or WinActive("ahk_class Qt5QWindowOwnDCIcon") or isWindowFullScreen("ahk_class Qt5QWindowOwnDCIcon")or WinActive("ahk_exe client.exe") or isWindowFullScreen("ahk_exe client.exe") {
-;                
-;                spamsioon := 1
+;                ImageSearch, RingUtamoX, RingUtamoY, 0, 0,  A_ScreenWidth, A_ScreenHeight, C:\Users\ramon\Documents\ProjetoUtilityBOT\Imagens\health\health20.png
+;                if(ErrorLevel = 1){
+;                    Send, {Ins}
+;                }
 ;            }
 ;        }
 ;return
-
- ;   #If (spamsioon = 1)
-
-;%UserHotkeySio%::
-;    StopLoop := False
-
-;    Loop{
-;        If StopLoop {
-;            Break
-;        } else {
-;            Send, %Hotkey%
-;            Sleep, 1050
-;        }
-;    }
-;Return
-
-;%UserHotkeySio%::
-;    StopLoop := True
-;Return
-
-
 
 
 
